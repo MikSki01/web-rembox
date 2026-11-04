@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="t d">
+  <title id="t">Робоче місце майстра</title>
+  <desc id="d">Ноутбук із розібраним корпусом на майстерському столі</desc>
+
+  <!-- Фон -->
+  <rect width="480" height="360" fill="#f4f4f4" />
+
+  <!-- Стіл -->
+  <rect x="0" y="270" width="480" height="90" fill="#111111" />
+  <rect x="0" y="270" width="480" height="8" fill="#ff6a00" />
+
+  <!-- Екран ноутбука -->
+  <rect x="110" y="60" width="260" height="170" rx="10" fill="#111111" />
+  <rect x="122" y="72" width="236" height="146" rx="4" fill="#1e1e1e" />
+  <!-- Значок налаштувань на екрані -->
+  <circle cx="240" cy="145" r="30" fill="none" stroke="#ff6a00" stroke-width="10" stroke-dasharray="14 8" />
+  <circle cx="240" cy="145" r="10" fill="#ff6a00" />
+
+  <!-- Нижня частина ноутбука (розібрана) -->
+  <polygon points="90,262 390,262 410,230 70,230" fill="#ffffff" stroke="#111111" stroke-width="4" />
+  <rect x="150" y="238" width="120" height="16" rx="3" fill="#111111" />
+  <rect x="285" y="238" width="40" height="16" rx="3" fill="#ff6a00" />
+
+  <!-- Викручені гвинтики на столі -->
+  <circle cx="60" cy="300" r="8" fill="#ffffff" />
+  <circle cx="90" cy="315" r="8" fill="#ffffff" />
+  <circle cx="420" cy="305" r="8" fill="#ff6a00" />
+</svg>

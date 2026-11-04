@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="t d">
+  <title id="t">Інструменти для ремонту</title>
+  <desc id="d">Викрутка, пінцет і мікросхема на чорному тлі</desc>
+
+  <!-- Фон -->
+  <rect width="480" height="360" fill="#111111" />
+
+  <!-- Мікросхема -->
+  <rect x="170" y="110" width="140" height="140" rx="8" fill="#1e1e1e" stroke="#ff6a00" stroke-width="4" />
+  <circle cx="190" cy="130" r="6" fill="#ff6a00" />
+  <rect x="205" y="145" width="70" height="70" rx="4" fill="#ffffff" />
+  <!-- Ніжки мікросхеми -->
+  <g fill="#ffffff">
+    <rect x="150" y="135" width="20" height="8" /><rect x="150" y="160" width="20" height="8" />
+    <rect x="150" y="185" width="20" height="8" /><rect x="150" y="210" width="20" height="8" />
+    <rect x="310" y="135" width="20" height="8" /><rect x="310" y="160" width="20" height="8" />
+    <rect x="310" y="185" width="20" height="8" /><rect x="310" y="210" width="20" height="8" />
+  </g>
+
+  <!-- Викрутка -->
+  <g transform="rotate(-35 80 280)">
+    <rect x="30" y="270" width="70" height="26" rx="10" fill="#ff6a00" />
+    <rect x="100" y="279" width="110" height="8" fill="#ffffff" />
+  </g>
+
+  <!-- Пінцет -->
+  <g stroke="#ffffff" stroke-width="7" stroke-linecap="round">
+    <line x1="400" y1="320" x2="370" y2="200" />
+    <line x1="425" y1="320" x2="385" y2="200" />
+  </g>
+</svg>
