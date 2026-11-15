@@ -9,6 +9,7 @@
     />
     <title>РемБокс — сервіс ремонту техніки в Києві</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
   </head>
 
   <body>
@@ -17,7 +18,16 @@
       <div class="container header-inner">
         <a class="logo" href="#top">Рем<span>Бокс</span></a>
 
-        <nav class="main-nav" aria-label="Головне меню">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          Меню
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Головне меню">
           <a href="#about">Про сервіс</a>
           <a href="#repairs">Види ремонту</a>
           <a href="#steps">Етапи роботи</a>
@@ -56,6 +66,14 @@
               замінені старі деталі повертаємо клієнту.
             </p>
 
+            <p class="more-text" hidden>
+              До того ж ми безкоштовно підкажемо, чи варто ремонтувати пристрій,
+              чи вигідніше придбати новий — чесно й без нав'язування послуг.
+            </p>
+            <button class="button button-ghost" type="button" data-toggle="more">
+              Показати більше
+            </button>
+
             <ul class="advantages">
               <li>Безкоштовна діагностика</li>
               <li>Гарантія до 6 місяців</li>
@@ -85,6 +103,8 @@
             списку — зателефонуйте, і ми підкажемо.
           </p>
 
+          <p class="fav-counter">Збережено напрямів: <span data-fav-count>0</span></p>
+
           <div class="cards">
             <article class="card">
               <h3>Ноутбуки та ПК</h3>
@@ -94,6 +114,9 @@
                 <li>Ремонт материнської плати</li>
                 <li>Встановлення Windows та програм</li>
               </ul>
+              <button class="fav" type="button" aria-pressed="false">
+                ☆ Зберегти напрям
+              </button>
             </article>
 
             <article class="card">
@@ -104,6 +127,9 @@
                 <li>Ремонт роз'єму зарядки</li>
                 <li>Ремонт після потрапляння вологи</li>
               </ul>
+              <button class="fav" type="button" aria-pressed="false">
+                ☆ Зберегти напрям
+              </button>
             </article>
 
             <article class="card">
@@ -114,6 +140,9 @@
                 <li>Мікрохвильові печі</li>
                 <li>Дрібна кухонна техніка</li>
               </ul>
+              <button class="fav" type="button" aria-pressed="false">
+                ☆ Зберегти напрям
+              </button>
             </article>
           </div>
         </div>
