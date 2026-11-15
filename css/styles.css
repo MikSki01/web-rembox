@@ -89,10 +89,43 @@ a:focus-visible {
   color: #ff6a00;
 }
 
+.nav-toggle {
+  display: inline-block;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: #111111;
+  background-color: #ff6a00;
+  border: 2px solid #ff6a00;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-toggle:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
 .main-nav {
-  display: flex;
-  flex-wrap: wrap;
+  display: none;
+  flex-direction: column;
+  width: 100%;
   gap: 8px;
+}
+.main-nav.is-open {
+  display: flex;
+}
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
 }
 .main-nav a {
   color: #ffffff;
@@ -422,4 +455,46 @@ a:focus-visible {
   .reverse .picture {
     order: 2;
   }
+}
+.button-ghost {
+  background-color: transparent;
+  color: #ff6a00;
+}
+.button-ghost:hover {
+  background-color: #ff6a00;
+  color: #111111;
+}
+
+.fav-counter {
+  font-weight: 600;
+  color: #ff6a00;
+}
+
+.fav {
+  margin-top: 16px;
+  padding: 8px 14px;
+  font: inherit;
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #ff6a00;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.fav:hover {
+  background-color: #ff6a00;
+  color: #111111;
+}
+.fav:focus-visible {
+  outline: 3px solid #ff6a00;
+  outline-offset: 3px;
+}
+
+.card.is-saved {
+  border-color: #ff6a00;
+  box-shadow: 0 0 0 2px #ff6a00;
+}
+.card.is-saved .fav {
+  background-color: #ff6a00;
+  color: #111111;
 }
