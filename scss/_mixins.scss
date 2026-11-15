@@ -1,0 +1,22 @@
+// ---------- Параметризовані міксини ----------
+@use "variables" as *;
+
+// Медіазапит mobile-first: стилі застосовуються від заданої ширини й ширше.
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Сітка із заданою кількістю колонок і відступом.
+@mixin grid($columns, $gap: $space) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Помітний стан фокуса для інтерактивних елементів.
+@mixin focus-ring($color: $color-primary) {
+  outline: 3px solid $color;
+  outline-offset: 3px;
+}

@@ -1,0 +1,615 @@
+// ============================================================
+// РемБокс — головний файл стилів (ЛР4, SCSS, mobile-first)
+// ============================================================
+@use "variables" as *;
+@use "mixins" as *;
+
+// ---------- Базові налаштування ----------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.6rem;              // мобільний базовий розмір
+  margin-bottom: $space;
+
+  @include respond-to($bp-tablet) {
+    font-size: 2rem;             // більший на планшеті й ширше
+  }
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: $color-primary-dark;
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: 4px;
+  }
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space;
+}
+
+// ---------- Шапка та навігація ----------
+.site-header {
+  background-color: $color-text;
+  color: $color-bg;
+  padding-bottom: 40px;
+
+  @include respond-to($bp-tablet) {
+    padding-bottom: 60px;
+  }
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $color-bg;
+  text-decoration: none;
+
+  span {
+    color: $color-primary;
+  }
+}
+
+// Кнопка-перемикач меню: видима лише на мобільному
+.nav-toggle {
+  display: inline-block;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: $color-text;
+  background-color: $color-primary;
+  border: 2px solid $color-primary;
+  border-radius: $radius;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring($color-bg);
+  }
+
+  @include respond-to($bp-tablet) {
+    display: none;
+  }
+}
+
+.main-nav {
+  display: none;              // на мобільному сховане, показується класом .is-open
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+
+  &.is-open {
+    display: flex;
+  }
+
+  @include respond-to($bp-tablet) {
+    display: flex;           // на планшеті й ширше — завжди видиме
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  a {
+    color: $color-bg;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: $radius;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-text;
+    }
+  }
+}
+
+// ---------- Головний екран ----------
+.hero {
+  padding-top: 40px;
+
+  h1 {
+    font-size: 2rem;             // мобільний
+    max-width: 720px;
+
+    span {
+      color: $color-primary;
+    }
+
+    @include respond-to($bp-tablet) {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+.hero-text {
+  max-width: 560px;
+  font-size: 1.1rem;
+  color: #d0d0d0;
+}
+
+// ---------- Кнопка ----------
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 14px 28px;
+  background-color: $color-primary;
+  color: $color-text;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid $color-primary;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: $color-bg;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// ---------- Секції ----------
+.section {
+  padding: 50px 0;
+
+  @include respond-to($bp-tablet) {
+    padding: 70px 0;
+  }
+}
+
+.section-dark {
+  background-color: $color-text;
+  color: $color-bg;
+
+  h2 {
+    color: $color-primary;
+  }
+}
+
+.section-lead {
+  max-width: 600px;
+  color: #cfcfcf;
+  margin-bottom: 30px;
+}
+
+.section-accent {
+  background-color: $color-muted;
+  border-top: 6px solid $color-primary;
+}
+
+// Дві колонки: на мобільному — одна, від планшета — дві
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+
+  @include respond-to($bp-tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+// ---------- Зображення ----------
+.picture {
+  margin: 0;
+
+  img {
+    width: 100%;
+    border-radius: $radius;
+    border: 3px solid $color-text;
+  }
+
+  figcaption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666666;
+    text-align: center;
+  }
+}
+
+// ---------- Список переваг ----------
+.advantages {
+  list-style: none;
+  padding: 0;
+  margin: $space 0 0;
+
+  li {
+    padding: 6px 0 6px 28px;
+    position: relative;
+    font-weight: 600;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 15px;
+      width: 12px;
+      height: 12px;
+      background-color: $color-primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+// ---------- Картки видів ремонту (mobile-first сітка) ----------
+.cards {
+  @include grid(1, 24px);              // 1 колонка на мобільному
+
+  @include respond-to($bp-tablet) {
+    @include grid(2, 24px);            // 2 колонки на планшеті
+  }
+
+  @include respond-to($bp-desktop) {
+    @include grid(3, 24px);            // 3 колонки на десктопі
+  }
+}
+
+.card {
+  background-color: $color-surface;
+  border: 1px solid #333333;
+  border-top: 4px solid $color-primary;
+  border-radius: $radius;
+  padding: 24px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  h3 {
+    color: $color-primary;
+    font-size: 1.3rem;
+  }
+
+  ul {
+    padding-left: $space;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+}
+
+// ---------- Етапи роботи ----------
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+
+  li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 56px;
+    margin-bottom: 10px;
+
+    &::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 38px;
+      height: 38px;
+      background-color: $color-primary;
+      color: $color-text;
+      font-weight: 800;
+      text-align: center;
+      line-height: 38px;
+      border-radius: $radius;
+    }
+  }
+}
+
+// ---------- Контакти ----------
+.contact-list {
+  font-style: normal;
+
+  p {
+    margin: 0 0 16px;
+  }
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777777;
+}
+
+.phone {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $color-text;
+  text-decoration: none;
+  border-bottom: 3px solid $color-primary;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+.note {
+  background-color: $color-text;
+  color: $color-bg;
+  padding: 24px;
+  border-radius: $radius;
+  border-left: 6px solid $color-primary;
+
+  h3 {
+    color: $color-primary;
+  }
+
+  a {
+    color: $color-primary;
+  }
+}
+
+// ---------- Форма заявки (mobile-first) ----------
+.order-form {
+  max-width: 760px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;          // 1 колонка на мобільному
+  gap: $space;
+
+  @include respond-to($bp-tablet) {
+    grid-template-columns: 1fr 1fr;    // 2 колонки від планшета
+  }
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-weight: 600;
+    color: $color-bg;
+  }
+
+  input,
+  select,
+  textarea {
+    font: inherit;
+    padding: 10px 12px;
+    border: 2px solid #3a3a3a;
+    border-radius: $radius;
+    background-color: $color-bg;
+    color: $color-text;
+
+    &:focus-visible {
+      @include focus-ring($color-primary);
+      outline-offset: 2px;
+      border-color: $color-primary;
+    }
+
+    &:user-invalid {
+      border-color: #e03131;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: $space;
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cfcfcf;
+}
+
+// ---------- Підвал ----------
+.site-footer {
+  background-color: $color-text;
+  color: #bbbbbb;
+  padding: 30px 0;
+  font-size: 0.95rem;
+
+  .footer-inner {
+    p {
+      margin: 0 0 6px;
+    }
+
+    a {
+      color: $color-primary;
+    }
+  }
+}
+
+// Зображення у двоколонці на мобільному завжди над текстом
+@include respond-to($bp-tablet) {
+  .reverse .picture {
+    order: 2;
+  }
+}
+
+// ---------- Інтерактивні елементи (ЛР5) ----------
+
+// Прозора («ghost») кнопка для «Показати більше»
+.button-ghost {
+  background-color: transparent;
+  color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-text;
+  }
+}
+
+// Лічильник збережених напрямів
+.fav-counter {
+  font-weight: 600;
+  color: $color-primary;
+}
+
+// Кнопка «Зберегти напрям» у картці
+.fav {
+  margin-top: 16px;
+  padding: 8px 14px;
+  font: inherit;
+  color: $color-bg;
+  background-color: transparent;
+  border: 2px solid $color-primary;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-text;
+  }
+
+  &:focus-visible {
+    @include focus-ring($color-primary);
+  }
+}
+
+// Збережена картка — виразний акцент
+.card.is-saved {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 2px $color-primary;
+
+  .fav {
+    background-color: $color-primary;
+    color: $color-text;
+  }
+}
+
+// ---------- Каталог: пошук і фільтр (ЛР6) ----------
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: $space;
+}
+
+.search-input {
+  flex: 1 1 260px;
+  font: inherit;
+  padding: 10px 12px;
+  border: 2px solid #3a3a3a;
+  border-radius: $radius;
+  background-color: $color-bg;
+  color: $color-text;
+
+  &:focus-visible {
+    @include focus-ring($color-primary);
+    outline-offset: 2px;
+    border-color: $color-primary;
+  }
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+
+  .filter-select {
+    font: inherit;
+    padding: 10px 12px;
+    border: 2px solid #3a3a3a;
+    border-radius: $radius;
+    background-color: $color-bg;
+    color: $color-text;
+
+    &:focus-visible {
+      @include focus-ring($color-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Зображення в динамічній картці
+.card-image {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+}
+
+// Повідомлення «нічого не знайдено»
+.no-results {
+  padding: 16px;
+  border: 2px dashed $color-primary;
+  border-radius: $radius;
+  color: $color-primary;
+  font-weight: 600;
+}
+
+// Стан завантаження / помилки каталогу (ЛР7)
+.catalog-status {
+  padding: 16px;
+  border-radius: $radius;
+  background-color: rgba($color-primary, 0.12);
+  color: $color-bg;
+  font-weight: 600;
+
+  .button-ghost {
+    margin-left: 12px;
+  }
+}
