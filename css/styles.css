@@ -380,4 +380,82 @@ a:focus-visible,
   .section {
     padding: 50px 0;
   }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Форма заявки (ЛР3) ---------- */
+.order-form {
+  max-width: 760px;
+}
+
+/* Двовимірне розташування полів — CSS Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space);
+}
+
+/* Поле «Опис проблеми» займає обидві колонки */
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-weight: 600;
+  color: var(--color-bg);
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  padding: 10px 12px;
+  border: 2px solid #3a3a3a;
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+/* Стан фокуса — помітна рамка */
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+
+/* Стан помилки валідації — поле з некоректним значенням */
+.field input:user-invalid,
+.field select:user-invalid,
+.field textarea:user-invalid {
+  border-color: #e03131;
+}
+
+/* Одновимірний рядок дій — CSS Flexbox */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: var(--space);
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cfcfcf;
 }
