@@ -33,24 +33,3 @@ if (moreBtn && moreText) {
     moreBtn.textContent = hidden ? "Показати більше" : "Згорнути";
   });
 }
-
-// ---------- 3. «Зберегти напрям» (обране + лічильник) ----------
-const favButtons = document.querySelectorAll(".fav");
-const favCount = document.querySelector("[data-fav-count]");
-
-if (favButtons.length && favCount) {
-  const updateCount = () => {
-    const saved = document.querySelectorAll(".card.is-saved").length;
-    favCount.textContent = String(saved);
-  };
-
-  favButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const card = button.closest(".card");
-      const saved = card.classList.toggle("is-saved");
-      button.setAttribute("aria-pressed", String(saved));
-      button.textContent = saved ? "★ Збережено" : "☆ Зберегти напрям";
-      updateCount();
-    });
-  });
-}

@@ -10,6 +10,7 @@
     <title>РемБокс — сервіс ремонту техніки в Києві</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/main.js" defer></script>
+    <script src="js/scripts.js" defer></script>
   </head>
 
   <body>
@@ -103,48 +104,33 @@
             списку — зателефонуйте, і ми підкажемо.
           </p>
 
-          <p class="fav-counter">Збережено напрямів: <span data-fav-count>0</span></p>
-
-          <div class="cards">
-            <article class="card">
-              <h3>Ноутбуки та ПК</h3>
-              <ul>
-                <li>Заміна екрана та клавіатури</li>
-                <li>Чистка від пилу, заміна термопасти</li>
-                <li>Ремонт материнської плати</li>
-                <li>Встановлення Windows та програм</li>
-              </ul>
-              <button class="fav" type="button" aria-pressed="false">
-                ☆ Зберегти напрям
-              </button>
-            </article>
-
-            <article class="card">
-              <h3>Смартфони та планшети</h3>
-              <ul>
-                <li>Заміна дисплея та скла</li>
-                <li>Заміна акумулятора</li>
-                <li>Ремонт роз'єму зарядки</li>
-                <li>Ремонт після потрапляння вологи</li>
-              </ul>
-              <button class="fav" type="button" aria-pressed="false">
-                ☆ Зберегти напрям
-              </button>
-            </article>
-
-            <article class="card">
-              <h3>Побутова техніка</h3>
-              <ul>
-                <li>Кавомашини та чайники</li>
-                <li>Пилососи та роботи-пилососи</li>
-                <li>Мікрохвильові печі</li>
-                <li>Дрібна кухонна техніка</li>
-              </ul>
-              <button class="fav" type="button" aria-pressed="false">
-                ☆ Зберегти напрям
-              </button>
-            </article>
+          <div class="catalog-controls">
+            <input
+              id="search"
+              class="search-input"
+              type="search"
+              placeholder="Пошук за назвою або описом"
+              aria-label="Пошук послуг"
+            />
+            <label class="filter">
+              Категорія:
+              <select id="category" class="filter-select">
+                <option value="all">Усі</option>
+                <option value="laptop">Ноутбуки та ПК</option>
+                <option value="phone">Смартфони та планшети</option>
+                <option value="appliance">Побутова техніка</option>
+              </select>
+            </label>
           </div>
+
+          <p class="fav-counter">Збережено послуг: <span data-fav-count>0</span></p>
+
+          <!-- Картки формуються динамічно з масиву в scripts.js -->
+          <div class="cards" id="catalog"></div>
+
+          <p class="no-results" hidden>
+            Нічого не знайдено. Спробуйте змінити запит або категорію.
+          </p>
         </div>
       </section>
 
