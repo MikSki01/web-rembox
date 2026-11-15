@@ -555,3 +555,14 @@ a:focus-visible {
   color: #ff6a00;
   font-weight: 600;
 }
+
+.catalog-status {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: rgba(255, 106, 0, 0.12);
+  color: #ffffff;
+  font-weight: 600;
+}
+.catalog-status .button-ghost {
+  margin-left: 12px;
+}

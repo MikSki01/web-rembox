@@ -600,3 +600,16 @@ a {
   color: $color-primary;
   font-weight: 600;
 }
+
+// Стан завантаження / помилки каталогу (ЛР7)
+.catalog-status {
+  padding: 16px;
+  border-radius: $radius;
+  background-color: rgba($color-primary, 0.12);
+  color: $color-bg;
+  font-weight: 600;
+
+  .button-ghost {
+    margin-left: 12px;
+  }
+}
