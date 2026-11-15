@@ -539,3 +539,64 @@ a {
     color: $color-text;
   }
 }
+
+// ---------- Каталог: пошук і фільтр (ЛР6) ----------
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: $space;
+}
+
+.search-input {
+  flex: 1 1 260px;
+  font: inherit;
+  padding: 10px 12px;
+  border: 2px solid #3a3a3a;
+  border-radius: $radius;
+  background-color: $color-bg;
+  color: $color-text;
+
+  &:focus-visible {
+    @include focus-ring($color-primary);
+    outline-offset: 2px;
+    border-color: $color-primary;
+  }
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+
+  .filter-select {
+    font: inherit;
+    padding: 10px 12px;
+    border: 2px solid #3a3a3a;
+    border-radius: $radius;
+    background-color: $color-bg;
+    color: $color-text;
+
+    &:focus-visible {
+      @include focus-ring($color-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Зображення в динамічній картці
+.card-image {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+}
+
+// Повідомлення «нічого не знайдено»
+.no-results {
+  padding: 16px;
+  border: 2px dashed $color-primary;
+  border-radius: $radius;
+  color: $color-primary;
+  font-weight: 600;
+}
