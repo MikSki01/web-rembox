@@ -9,8 +9,7 @@
     />
     <title>РемБокс — сервіс ремонту техніки в Києві</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/main.js" defer></script>
-    <script src="js/scripts.js" defer></script>
+    <script type="module" src="js/main.js"></script>
   </head>
 
   <body>
@@ -125,7 +124,10 @@
 
           <p class="fav-counter">Збережено послуг: <span data-fav-count>0</span></p>
 
-          <!-- Картки формуються динамічно з масиву в scripts.js -->
+          <!-- Стан завантаження / помилки -->
+          <p class="catalog-status" id="catalog-status" role="status" hidden></p>
+
+          <!-- Картки формуються динамічно з data/items.json (js/main.js) -->
           <div class="cards" id="catalog"></div>
 
           <p class="no-results" hidden>

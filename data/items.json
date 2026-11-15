@@ -1,0 +1,20 @@
+[
+  { "id": 1, "title": "Заміна екрана ноутбука", "category": "laptop",
+    "description": "Швидка заміна матриці та захисного скла ноутбука.", "image": "images/tools.svg" },
+  { "id": 2, "title": "Чистка та заміна термопасти", "category": "laptop",
+    "description": "Усуваємо перегрів і шум вентиляторів ПК та ноутбуків.", "image": "images/tools.svg" },
+  { "id": 3, "title": "Ремонт материнської плати", "category": "laptop",
+    "description": "Діагностика й пайка материнських плат після збоїв.", "image": "images/tools.svg" },
+  { "id": 4, "title": "Заміна дисплея смартфона", "category": "phone",
+    "description": "Міняємо дисплейні модулі смартфонів і планшетів.", "image": "images/tools.svg" },
+  { "id": 5, "title": "Заміна акумулятора", "category": "phone",
+    "description": "Повертаємо автономність пристрою новим акумулятором.", "image": "images/tools.svg" },
+  { "id": 6, "title": "Ремонт роз'єму зарядки", "category": "phone",
+    "description": "Пайка та заміна гнізда заряджання смартфона.", "image": "images/tools.svg" },
+  { "id": 7, "title": "Ремонт кавомашини", "category": "appliance",
+    "description": "Чистка, заміна ущільнювачів і ремонт помпи кавомашини.", "image": "images/workshop.svg" },
+  { "id": 8, "title": "Ремонт пилососа", "category": "appliance",
+    "description": "Відновлюємо тягу та замінюємо щітки й двигун пилососа.", "image": "images/workshop.svg" },
+  { "id": 9, "title": "Ремонт мікрохвильової печі", "category": "appliance",
+    "description": "Безпечний ремонт магнетрона та електроніки НВЧ-печі.", "image": "images/workshop.svg" }
+]
