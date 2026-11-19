@@ -5,8 +5,14 @@ import { fetchServices } from "./api.js";
 import { renderCatalog, setMessage } from "./render.js";
 import { debounce } from "./utils.js";
 import { initUi } from "./ui.js";
+import { initForm } from "./form.js";
+import { read, write } from "./storage.js";
 
 initUi();
+initForm(); // форма заявки + localStorage (ЛР8)
+
+const FAV_KEY = "rembox_favorites"; // id збережених послуг
+const getFavs = () => read(FAV_KEY, []);
 
 const catalog = document.querySelector("#catalog");
 const searchInput = document.querySelector("#search");
@@ -30,6 +36,22 @@ function applyFilters() {
   });
   renderCatalog(catalog, filtered);
   noResults.hidden = filtered.length > 0;
+  markSaved(); // відновити стан «обране» на нових картках (ЛР8)
+}
+
+// Позначає збережені картки за даними з localStorage і оновлює лічильник.
+function markSaved() {
+  const favs = getFavs();
+  catalog.querySelectorAll(".card").forEach((card) => {
+    const saved = favs.includes(Number(card.dataset.id));
+    card.classList.toggle("is-saved", saved);
+    const button = card.querySelector(".fav");
+    if (button) {
+      button.setAttribute("aria-pressed", String(saved));
+      button.textContent = saved ? "★ Збережено" : "☆ Зберегти послугу";
+    }
+  });
+  if (favCount) favCount.textContent = String(favs.length);
 }
 
 // Асинхронне завантаження з обробкою станів.
@@ -71,9 +93,13 @@ catalog.addEventListener("click", (event) => {
   const saved = card.classList.toggle("is-saved");
   button.setAttribute("aria-pressed", String(saved));
   button.textContent = saved ? "★ Збережено" : "☆ Зберегти послугу";
-  if (favCount) {
-    favCount.textContent = String(document.querySelectorAll(".card.is-saved").length);
-  }
+
+  // Зберігаємо обране у localStorage (ЛР8).
+  const id = Number(card.dataset.id);
+  const favs = getFavs().filter((x) => x !== id);
+  if (saved) favs.push(id);
+  write(FAV_KEY, favs);
+  if (favCount) favCount.textContent = String(favs.length);
 });
 
 loadCatalog();

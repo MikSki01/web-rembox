@@ -613,3 +613,65 @@ a {
     margin-left: 12px;
   }
 }
+
+// ---------- Форма: підтвердження і збережені заявки (ЛР8) ----------
+.form-success {
+  margin-top: $space;
+  padding: 14px 16px;
+  border-radius: $radius;
+  background-color: $color-primary;
+  color: $color-text;
+  font-weight: 700;
+}
+
+.orders {
+  margin-top: $space;
+
+  h3 {
+    color: $color-primary;
+    margin-bottom: 12px;
+  }
+}
+
+.orders-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+
+  @include respond-to($bp-tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.order-card {
+  background-color: $color-surface;
+  border: 1px solid #333333;
+  border-left: 4px solid $color-primary;
+  border-radius: $radius;
+  padding: 16px;
+
+  p {
+    margin: 0 0 6px;
+    color: $color-bg;
+  }
+
+  .order-head {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $color-primary;
+    font-weight: 700;
+  }
+
+  .order-problem {
+    color: #cfcfcf;
+  }
+
+  .order-del {
+    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+}
